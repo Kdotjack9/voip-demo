@@ -1,0 +1,83 @@
+extends layout
+
+block content
+    div.callFeatures
+        span.toggleVideo
+            button(onclick="toggleVideo()") Toggle Video
+        span.toggleAudio
+            button(onclick="toggleAudio()") Toggle Audio
+    div.remoteView(id="remoteView")
+    div.cameraView(id="cameraView")
+    div(class="spacer")
+    div(id="screenShare", class="screenShare")
+    input(type="hidden" id="username" name="username" value="#{user}")
+
+    script.
+        window.addEventListener('load', function () {
+            var username = document.getElementById("username");
+            requestCall(username.value);
+        });
+
+        var currentCall = null;
+        var localAudio = true;
+        var localVideo = true;
+        var requestCall = function (username) {
+            var postForCsCall = {
+                "username": username
+            };
+
+            jQuery.ajax({
+                url: "/calls/agentCall",
+                type: 'POST',
+                data: JSON.stringify(postForCsCall),
+                contentType: "application/json; charset=utf-8",
+                success: function (data, status, xhr) {
+                    setupCall(data.sessionid);
+                },
+                error: function (xhr, status, error) {
+                    alert("ERROR OCCURED!");
+                }
+            });
+        };
+
+        var setupCall = function (sessionID) {
+            UC.start(sessionID, []);
+        };
+
+        UC.phone.onIncomingCall = function (call) {
+            call.onInCall = function(lineNumber){
+                var localElem = document.getElementById("cameraView");
+                call.setPreviewElement(localElem);
+                var remoteElem = document.getElementById("remoteView");
+                call.setVideoElement(remoteElem, "main");
+
+             //   var remoteViewElem = document.getElementById("screenShare");
+             //   AssistAgentSDK.setRemoteView(remoteViewElem);
+
+                call.setLocalMediaEnabled(true, true);
+            }
+
+            var response = confirm("Customer Needs Assistance! Would you like to help?");
+            if(response === true){
+                currentCall = call;
+                call.answer(true, true);
+
+            } else {
+                call.end();
+            }
+
+        };
+
+        var toggleVideo = function(){
+            localVideo = !localVideo;
+            currentCall.setLocalMediaEnabled(localVideo, localAudio);
+        };
+
+        var toggleAudio = function(){
+            localAudio = !localAudio;
+            currentCall.setLocalMediaEnabled(localVideo, localAudio);
+        };
+
+        var endCall = function () {
+            call.end();
+        };

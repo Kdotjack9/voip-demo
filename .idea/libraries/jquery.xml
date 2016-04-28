@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="jquery" type="javaScript">
+    <properties>
+      <option name="frameworkName" value="jQuery" />
+      <sourceFilesUrls>
+        <item url="file://F:/Users/KillerJack9/Downloads/jquery-2.2.3.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://F:/Users/KillerJack9/Downloads/jquery-2.2.3.min.js" />
+      <root url="file://F:/Users/KillerJack9/Downloads/jquery-2.2.3.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

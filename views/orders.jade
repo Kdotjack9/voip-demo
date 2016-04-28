@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  div(class='orderHistory')
+      for order in orders
+        div.orderId
+          span.orderIdLabel
+            | Order ID: #{order.orderId}
+          span
+            a(href='https://10.0.0.152:3000/returns/#{order.orderId}') Return
+        table
+          tr
+            th Item Name
+            th Item Quantity
+            th Item Cost
+          for item in order.items
+            tr
+              td #{item.itemName}
+              td #{item.quantity}
+              td #{item.price}

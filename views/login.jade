@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  form(name="loginForm", method="post")
+     div.username
+        span.label Username:
+        input.loginUsername(type="text", name="username")
+     div.password
+        span.label Password:
+        input.loginPassword(type="password", name="password")
+     div.actions
+         span.loginButtonSpace
+         input.login(type="submit", value="Login")

@@ -1,0 +1,128 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #808080;
+  background-color: #282828;
+}
+
+a {
+  color: #62627f;
+}
+
+button, .login, .returnButton {
+  color: #1c1c37;
+  background: #62627f;
+  border: #62627f;
+}
+
+div#cameraView {
+  width: 320px;
+  height: 240px;
+  margin: 3px;
+  float: left;
+}
+
+div#remoteView {
+  width: 480px;
+  height: 360px;
+  margin: 3px;
+  float: left;
+}
+
+table {
+  width: 750px;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th, td {
+  border: 1px solid transparent;
+  padding: 5px;
+  width: 250px;
+}
+
+th {
+  background: #1c1c37;
+  color: #808080;
+  font-weight: bold;
+}
+
+td {
+  background: #464661;
+  color: #1c1c37;
+  text-align: center;
+}
+
+tr:nth-child(even) td {
+  background: #464661;
+}
+
+tr:nth-child(odd) td {
+  background: #62627f;
+}
+
+tr td:hover { background: #10102b; color: #808080; }
+
+div.orderId {
+  padding: 5px;
+}
+
+div.spacer {
+  height: 25px;
+  clear: left;
+}
+
+span.orderIdLabel {
+  display: inline-block;
+  width: 700px;
+}
+
+span.label {
+  display: inline-block;
+  width: 100px;
+}
+
+div.username, div.password, div.actions{
+  padding: 5px;
+}
+
+span.loginButtonSpace {
+  display: inline-block;
+  width: 225px;
+}
+
+div.callFunctionality {
+  display: none;
+}
+
+span.toggleAudio, span.toggleVideo, span.endCall{
+  display: inline-block;
+  padding: 5px;
+}
+
+.loginUsername, .loginPassword, .feedbackInput {
+  border: 0px solid;
+  background: #62627f;
+  color: #1c1c37;
+}
+
+.reason, .returnFeedback .returnSubmit {
+  padding: 3px;
+}
+
+.returnFeedbackTextArea {
+  border: 0px solid;
+  background: #62627f;
+  color: #1c1c37;
+}
+
+span.returnsLabel {
+  display: inline-block;
+  width: 150px;
+}
+
+select.returnReasonDropdown {
+  border: 0px solid;
+  background: #62627f;
+  color: #1c1c37;
+}

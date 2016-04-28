@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="18146de3-e9d4-48d9-97f0-dad184503829" name="secureserver" url="https://localhost">
+        <fileTransfer port="0" mountedRoot="F:\cafexServer" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
